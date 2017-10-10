@@ -3,6 +3,8 @@
 Python code for analyzing and modeling real-estate data scraped from [streeteasy.com](http://streeteasy.com/) (see [streeteasy_scrape](https://github.com/purcelba/streeteasy_scrape)). A summary of these analyses is available in the project blog, [placeholder](LINK), and more details are provided in the Jupyter notebooks, [exploratory_analysis.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/notebooks/exploratory_analysis.ipynb) and [model_development.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/notebooks/model_development.ipynb).
 
 
+
+
 ## About
 
 This Python code was used to analyze factors that impact the cost of rent in New York City and to model rental prices based on a range of factor including location, size, amenities, and proximity to public transportation.  The code was applied to rental listings collected between 11/02/2016 and 1/31/2017 (~63,000 unique listings). The long-term goal of this work is to develop a model-based web application to evalute the value of a rental unit by comparing it's listed price to the predicted price.  
