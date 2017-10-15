@@ -1,6 +1,6 @@
 # streeteasy_model
 
-This Python code is used to analyze factors that impact the cost of rent in New York City and to model rental prices based on a range of factor including location, size, amenities, and proximity to public transportation.  A summary of the methods, analysis, and results is available on my [project blog](http://www.bradenpurcell.net/rentapp/).
+This Python code is used to analyze factors that impact the cost of rent in New York City and to model rental prices based on a range of factor including location, size, amenities, and proximity to public transportation.  A summary of the methods, analysis, and results is available on my [project blog](http://www.bradenpurcell.net/rentapp/). The final model forms the backend of the [RentApp web application](https://purcelba.pythonanywhere.com/) for easy comparison of expected and actual rental values.
 
 ## Data
 
@@ -21,17 +21,11 @@ To facilitate nested model testing, feateng.py accepts as an arguement one of th
 - 'trans' Amen model + features indicating distance to nearby public transportation
 - 'inter' Trans model + interation terms.  Includes all available features and adds interaction terms between neighborhood and several other variables (e.g., square feet, rooms, bedrooms, etc).
 
-## Model Development
+## Model Development and Evaluation
 
-I used hierarchical model testing to evaluate a series of L1-regularized linear regression models with increasing complexity.  Models were evaluated using cross-validated R<sup>2</sup> and RMSE. A summary of the model evaluation is available in the [model_development](https://github.com/purcelba/streeteasy_model/blob/master/model_development.ipynb) notebook.
+I used hierarchical model testing to evaluate a series of L1-regularized linear regression models with increasing complexity.  Models were evaluated using cross-validated R<sup>2</sup> and RMSE. A summary of the model development and evaluation is available in the [model_development](https://github.com/purcelba/streeteasy_model/blob/master/model_development.ipynb) notebook.
 
-## About
 
-This Python code was used to analyze factors that impact the cost of rent in New York City and to model rental prices based on a range of factor including location, size, amenities, and proximity to public transportation.  The code was applied to rental listings collected between 11/02/2016 and 1/31/2017 (~63,000 unique listings).  
+## Bootstraping Confidence Intervals and Feature Importance
 
-A SQLite database, db/streeteasy_db, contains the scraped and cleaned listing information (see [streeteasy_scrape](https://github.com/purcelba/streeteasy_scrape) for details on the data set and code for obtaining and formatting it).  Data scraped over multiple days are aggregated into a training set table, 'train_data', and a test set table, 'test_data' for cross validation.  The training data include data scraped from 10/30/2016 - 1/1/2017 and the test set includes data from 1/2/2017 - 1/11/2017 with all duplicates removed.  
-
-Prior to modeling, a series of exploratory analyses were performed to inform feature engineering and model building.  The exploratory analyses are summarized in the Jupyter notebook, [exploratory_analysis.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/exploratory_analysis.ipynb).  
-
-Model development is documented in the Jupyter notebook, [model_development.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/model_development.ipynb).  A series of models were evaluated that use L1-regularized regression based on different sets of features.  Code for generating the feature sets for these models is provided in [feateng.py](https://github.com/purcelba/streeteasy_model/blob/master/feateng.py).  This code can be easily modified to extend the model to new feature sets.  Preprocessed feature sets are provided in the /model_features directory as .csv files. 
-
+I used bootstrapping in order to quantify uncertainty in the goodness-of-fit statistics (R<sup>2</sup> and RMSE) and parameter estimates, as well as to quantify feature importance using a stability selection approach.  This process was accelerated using cluster computing to parallelize bootstrapping.  The code to implement this analysis is available in the [parallel_bootstrap](https://github.com/purcelba/parallel_bootstrap) repository.  A summary of the results are available in the [parallel_bootstrap_example.ipynb](https://github.com/purcelba/parallel_bootstrap/blob/master/parallel_bootstrap_example.ipynb) notebook.
