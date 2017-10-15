@@ -26,6 +26,6 @@ To facilitate nested model testing, feateng.py accepts as an arguement one of th
 I used hierarchical model testing to evaluate a series of L1-regularized linear regression models with increasing complexity.  Models were evaluated using cross-validated R<sup>2</sup> and RMSE. A summary of the model development and evaluation is available in the [model_development](https://github.com/purcelba/streeteasy_model/blob/master/model_development.ipynb) notebook.
 
 
-## Bootstraping Confidence Intervals and Feature Importance
+## Bootstrapping Confidence Intervals and Feature Importance
 
 I used bootstrapping in order to quantify uncertainty in the goodness-of-fit statistics (R<sup>2</sup> and RMSE) and parameter estimates, as well as to quantify feature importance using a stability selection approach.  This process was accelerated using cluster computing to parallelize bootstrapping.  The code to implement this analysis is available in the [parallel_bootstrap](https://github.com/purcelba/parallel_bootstrap) repository.  A summary of the results are available in the [parallel_bootstrap_example.ipynb](https://github.com/purcelba/parallel_bootstrap/blob/master/parallel_bootstrap_example.ipynb) notebook.
