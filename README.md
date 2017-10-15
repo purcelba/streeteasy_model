@@ -8,7 +8,7 @@ The data were scraped from [streeteasy.com](http://streeteasy.com/) using code t
 
 ## Data Exploration
 
-All variables were plotted and cleaned to inform the modeling procedure.  Data exploration is summarized in the [exploratory_analysis notebook](https://github.com/purcelba/streeteasy_model/blob/master/notebooks/exploratory_analysis.ipynb) or see the [project blog](http://www.bradenpurcell.net/rentapp/) for a brief overview. Briefly, each variable was tested for missing data, outliers, and possible erroneous values.  The distributions of each variable were plotted to test if transformations may be needed before modeling.  Rental price was plotted as a function of different variables to understand covariation.  
+All variables were plotted and cleaned to inform the modeling procedure.  Data exploration is summarized in the [exploratory_analysis notebook](https://github.com/purcelba/streeteasy_model/blob/master/exploratory_analysis.ipynb) or see the [project blog](http://www.bradenpurcell.net/rentapp/) for a brief overview. Briefly, each variable was tested for missing data, outliers, and possible erroneous values.  The distributions of each variable were plotted to test if transformations may be needed before modeling.  Rental price was plotted as a function of different variables to understand covariation.  
 
 ## Feature Engineering
 
@@ -23,7 +23,7 @@ To facilitate nested model testing, feateng.py accepts as an arguement one of th
 
 ## Model Development
 
-I used hierarchical model testing to evaluate a series of L1-regularized linear regression models with increasing complexity.  Models were evaluated using cross-validated R<sup>2</sup> and RMSE. A summary of the model evaluation is available in the [model_development](https://github.com/purcelba/streeteasy_model/blob/master/notebooks/model_development.ipynb) notebook.
+I used hierarchical model testing to evaluate a series of L1-regularized linear regression models with increasing complexity.  Models were evaluated using cross-validated R<sup>2</sup> and RMSE. A summary of the model evaluation is available in the [model_development](https://github.com/purcelba/streeteasy_model/blob/master/model_development.ipynb) notebook.
 
 ## About
 
@@ -31,7 +31,7 @@ This Python code was used to analyze factors that impact the cost of rent in New
 
 A SQLite database, db/streeteasy_db, contains the scraped and cleaned listing information (see [streeteasy_scrape](https://github.com/purcelba/streeteasy_scrape) for details on the data set and code for obtaining and formatting it).  Data scraped over multiple days are aggregated into a training set table, 'train_data', and a test set table, 'test_data' for cross validation.  The training data include data scraped from 10/30/2016 - 1/1/2017 and the test set includes data from 1/2/2017 - 1/11/2017 with all duplicates removed.  
 
-Prior to modeling, a series of exploratory analyses were performed to inform feature engineering and model building.  The exploratory analyses are summarized in the Jupyter notebook, [exploratory_analysis.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/notebooks/exploratory_analysis.ipynb).  
+Prior to modeling, a series of exploratory analyses were performed to inform feature engineering and model building.  The exploratory analyses are summarized in the Jupyter notebook, [exploratory_analysis.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/exploratory_analysis.ipynb).  
 
-Model development is documented in the Jupyter notebook, [model_development.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/notebooks/model_development.ipynb).  A series of models were evaluated that use L1-regularized regression based on different sets of features.  Code for generating the feature sets for these models is provided in [feateng.py](https://github.com/purcelba/streeteasy_model/blob/master/feateng.py).  This code can be easily modified to extend the model to new feature sets.  Preprocessed feature sets are provided in the /model_features directory as .csv files. 
+Model development is documented in the Jupyter notebook, [model_development.ipynb](https://github.com/purcelba/streeteasy_model/blob/master/model_development.ipynb).  A series of models were evaluated that use L1-regularized regression based on different sets of features.  Code for generating the feature sets for these models is provided in [feateng.py](https://github.com/purcelba/streeteasy_model/blob/master/feateng.py).  This code can be easily modified to extend the model to new feature sets.  Preprocessed feature sets are provided in the /model_features directory as .csv files. 
 
