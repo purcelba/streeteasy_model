@@ -15,11 +15,11 @@ All variables were plotted and cleaned to inform the modeling procedure.  Data e
 Feature engineering is handled in **feateng.py**.  The training and test data sets are queried from the streeteasy_db database.  Uninformative features are dropped (e.g., listing id).  Missing values were set to zero and binary features were added to signify missing values.  Categorical variables were encoded with one-hot-feature encoding.  Outliers were dropped based on visual inspection.
 
 To facilitate nested model testing, feateng.py accepts as an arguement one of the following strings indicating which features should be included:
-        - 'reduced' Reduced model. Only Bed rooms, neighborhood, unit type features
-        - 'scraped' Reduced model + scraped features. Additional features for square feet, days listed, rooms, and baths.
-        - 'amen' Scraped model + features indicating amenities.
-        - 'trans' Amen model + features indicating distance to nearby public transportation
-        - 'inter' Trans model + interation terms.  Includes all available features and adds interaction terms between neighborhood and several other variables (e.g., square feet, rooms, bedrooms, etc).
+        * 'reduced' Reduced model. Only Bed rooms, neighborhood, unit type features
+        * 'scraped' Reduced model + scraped features. Additional features for square feet, days listed, rooms, and baths.
+        * 'amen' Scraped model + features indicating amenities.
+        * 'trans' Amen model + features indicating distance to nearby public transportation
+        * 'inter' Trans model + interation terms.  Includes all available features and adds interaction terms between neighborhood and several other variables (e.g., square feet, rooms, bedrooms, etc).
 
 ## Model Development
 
